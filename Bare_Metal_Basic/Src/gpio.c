@@ -51,6 +51,28 @@ void gpioInit(void) {
 	// GPIO PC13 - 00 - Input Mode - USER_BUTTON
 	GPIOC_MODER &= ~(1U<<26);
 	GPIOC_MODER &= ~(1U<<27);
+
+	// GPIOA PA2 - 10 - Alternate Function Mode - USART2_TX
+	GPIOA_MODER &= ~(1U<<4);
+	GPIOA_MODER |= (1U<<5);
+
+	// GPIOA PA3 - 10 - Alternate Function Mode - USART2_RX
+	GPIOA_MODER &= ~(1U<<6);
+	GPIOA_MODER |= (1U<<7);
+
+	/* Set Alternate Functions, AFI */
+	// Alternate function for PA2, USART2_TX
+	GPIOA_AFRL |= (1U<<8);
+	GPIOA_AFRL |= (1U<<9);
+	GPIOA_AFRL |= (1U<<10);
+	GPIOA_AFRL &= ~(1U<<11);
+
+	// Alternate function for PA3, USART2_RX
+	GPIOA_AFRL |= (1U<<12);
+	GPIOA_AFRL |= (1U<<13);
+	GPIOA_AFRL |= (1U<<14);
+	GPIOA_AFRL &= ~(1U<<15);
+
 }
 
 void setOnGreenLED(void) {

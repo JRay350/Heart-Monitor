@@ -34,6 +34,9 @@
 #define RCC_AHB1ENR_OFFSET (0x30)
 #define RCC_AHB1ENR (*(volatile unsigned int*) (RCC_PERIPHERAL + RCC_AHB1ENR_OFFSET))
 
+#define GPIOA_AFRL_OFFSET (0x20)
+#define GPIOA_AFRL (*(volatile unsigned int*) (GPIOA_PERIPHERAL + GPIOA_AFRL_OFFSET))
+
 
 // Function Prototypes
 
