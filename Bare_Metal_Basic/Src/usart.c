@@ -40,9 +40,9 @@ void usart2Init(void) {
 
 void writeUSART2(int ch) {
 	// make sure the transmit data register is not empty
-	while (!(USART2_SR & SR_TXE)) {
-		USART2_DR =  (ch * 0xFF);
-	}
+	while (!(USART2_SR & SR_TXE))
+		;
+	USART2_DR = (ch & 0xFF);
 }
 
 char readUSART2(void) {

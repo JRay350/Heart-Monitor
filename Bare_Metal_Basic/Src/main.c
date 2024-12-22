@@ -18,6 +18,7 @@
 
 #include <stdint.h>
 #include "gpio.h"
+#include "usart.h"
 
 #if !defined(__SOFT_FP__) && defined(__ARM_FP)
   #warning "FPU is not initialized, but the project is compiling for an FPU. Please initialize the FPU before use."
@@ -28,10 +29,16 @@ int programState = OFF;
 int main(void)
 {
 	gpioInit();
+	usart2Init();
     /* Superloop */
 	for(;;) {
+		writeUSART2('T');
+		writeUSART2('e');
+		writeUSART2('s');
+		writeUSART2('t');
+		writeUSART2('\n');
 		// ledToggle();
-		setProgramState(&programState);
-		displayProgramState(&programState);
+		// setProgramState(&programState);
+		// displayProgramState(&programState);
 	}
 }
