@@ -60,6 +60,10 @@ void gpioInit(void) {
 	GPIOA_MODER &= ~(1U<<6);
 	GPIOA_MODER |= (1U<<7);
 
+	// GPIO PA0 - 11 - Analog Mode - ADC1/0
+	GPIOA_MODER |= (1U<<0);
+	GPIOA_MODER |= (1U<<1);
+
 	/* Set Alternate Functions, AFI */
 	// Alternate function for PA2, USART2_TX
 	GPIOA_AFRL |= (1U<<8);
@@ -72,7 +76,6 @@ void gpioInit(void) {
 	GPIOA_AFRL |= (1U<<13);
 	GPIOA_AFRL |= (1U<<14);
 	GPIOA_AFRL &= ~(1U<<15);
-
 }
 
 void setOnGreenLED(void) {
